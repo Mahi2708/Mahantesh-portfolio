@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahanthesh_S Portfolio</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-dark text-slate-200">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-darker/80 backdrop-blur-sm z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a class="text-2xl font-bold gradient-text">Portfolio</a>
+
+                <button id="menu-toggle" class="md:hidden text-slate-200 text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link active">About</a>
+    
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#certifications" class="nav-link">Certifications</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2">
+                <a href="#home" class="block py-2 nav-link active">About</a>
+                
+                <a href="#skills" class="block py-2 nav-link">Skills</a>
+                <a href="#experience" class="block py-2 nav-link">Experience</a>
+                <a href="#certifications" class="block py-2 nav-link">Certifications</a>
+                <a href="#projects" class="block py-2 nav-link">Projects</a>
+                <a href="#contact" class="block py-2 nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2">
+                <h1 class="text-5xl font-bold">Hi, I'm <span class="gradient-text">Mahanthesh S</span></h1>
+                <h2 class="text-2xl mb-6 text-slate-300">Graduate | ISE | BMSIT Bengaluru</h2>
+                <p class="text-slate-400 mb-8">
+                    A highly motivated and detail-oriented graduate from BMS Institute of Technology, with 6 months of hands-on internship
+                    experience across two organizations. I thrive in team environments and consistently deliver innovative, user-centric
+                    solutions. Passionate about building accessible, visually cohesive digital experiences that reflect both technical depth
+                    and design precision.
+                </p>
+
+                <div class="flex space-x-4">
+                    <a href="#contact" class="btn-primary px-6 py-3 rounded-full">Hire Me</a>
+                    <a href="#projects" class="border border-primary text-primary px-6 py-3 rounded-full">View Work</a>
+                    <div class="flex space-x-4">
+                        <a href="assets/doc/img/pdf/resume2.pdf" class="px-6 py-3 rounded-full btn-primary font-medium" download>My Resume
+                            <i class="fas fa-download"></i>
+                        </a>
+                    
+                    </div>
+                </div>
+
+                <div class="flex mt-8 space-x-4">
+                    <a href="https://github.com/Mahi2708" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mahanthesh-s-2604b42a2/" class="social-icon"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/msl170823" class="social-icon"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-80 h-80">
+                    <img src="assets/doc/img/ma.jpg" class="rounded-full w-full h-full border-4 floating">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+<!-- Skills Section -->
+<section id="skills" class="py-20 bg-dark">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="gradient-text">Skills</span></h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+            
+            <div>
+                <h3 class="text-2xl font-bold mb-6">Technical Skills</h3>
+
+                <div class="space-y-6">
+
+                    <div>
+                        <span class="font-medium">Java</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:100%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="font-medium">Python</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:100%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="font-medium">Generative AI</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:100%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="font-medium">Git</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:100%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="font-medium">Power BI</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:100%"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold mb-6">Professional Skills</h3>
+
+                <div class="space-y-6">
+
+                    <div>
+                        <span class="font-medium">Communication</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:100%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="font-medium">Teamwork</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:100%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="font-medium">Problem Solving</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:100%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="font-medium">Creativity</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:100%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="font-medium">Leadership</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width:100%"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Tools & Technologies -->
+    <div class="mt-16">
+        <h3 class="text-2xl font-bold mb-8 text-center">Tools & <span class="gradient-text">Technologies</span></h3>
+    
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                <i class="fab fa-python text-4xl text-yellow-400 mb-2"></i>
+                <span>Python</span>
+            </div>
+
+            <!-- HTML5 -->
+            <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                <i class="fab fa-html5 text-4xl text-orange-500 mb-2"></i>
+                <span>HTML5</span>
+            </div>
+    
+            <!-- Java -->
+            <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                <i class="fab fa-java text-4xl text-red-500 mb-2"></i>
+                <span>Java</span>
+            </div>
+    
+            <!-- Git -->
+            <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                <i class="fab fa-git-alt text-4xl text-orange-400 mb-2"></i>
+                <span>Git</span>
+            </div>
+    
+            <!-- Android Studio -->
+            <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                <i class="fab fa-android text-4xl text-green-500 mb-2"></i>
+                <span>Android Studio</span>
+            </div>
+    
+            <!-- Google Cloud -->
+            <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                <i class="fas fa-cloud text-4xl text-blue-400 mb-2"></i>
+                <span>Google Cloud</span>
+            </div>
+            <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                <i class="fas fa-database text-4xl text-cyan-400 mb-2"></i>
+                <span>MySQL</span>
+            </div>
+            <!-- PostgreSQL Card -->
+            <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                <i class="fas fa-database text-4xl text-indigo-400 mb-2"></i>
+                <span>PostgreSQL</span>
+            </div>
+            <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                <i class="fab fa-figma text-4xl text-pink-400 mb-2"></i>
+                <span>Figma</span>
+            </div>
+
+    
+            
+            <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+                <i class="fas fa-code text-4xl text-blue-400 mb-2"></i>
+                <span>VS Code</span>
+            </div>
+        </div>
+       
+       
+        
+</section>
+
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-darker">
+    <div class="mt-20">
+        <h3 class="text-2xl font-bold mb-8 text-center">My <span class="gradient-text">Experience</span></h3>
+    
+        <div class="relative max-w-3xl mx-auto">
+            <div class="absolute left-1/2 h-full w-0.5 bg-slate-700 transform -translate-x-1/2"></div>
+    
+            <div class="mb-8 flex justify-between items-center w-full timeline-item">
+                <div class="order-1 w-5/12 px-4 py-4 bg-slate-800 rounded-lg shadow-lg">
+                    <h4 class="text-lg font-bold mb-2">Intern</h4>
+                    <p class="text-sm text-slate-400 mb-2">Emberquest •Nov- 2014 to Dec-2024</p>
+                    <p class="text-slate-300">
+                        I worked on transforming ideas into practical business models, gaining the ability to validate and
+                        scale them effectively, and I developed strong skills in networking, pitching, and problem-solving
+                        that prepared me to build and sustain ventures.
+                    </p>
+                </div>
+                <div class="order-1 w-5/12"></div>
+            </div>
+            <div class="mb-8 flex justify-between items-center w-full timeline-item">
+                <div class="order-1 w-5/12"></div>
+                <div class="order-1 w-5/12 px-4 py-4 bg-slate-800 rounded-lg shadow-lg">
+                    <h4 class="text-lg font-bold mb-2">Web developer(Intern)</h4>
+                    <p class="text-sm text-slate-400 mb-2">Mindset IT solutions and consultations • Mar-2025 to june 2025
+                    </p>
+                    <p class="text-slate-300">
+                        built responsive web applications using java, spring boot,React and Next.js.
+                        Improved performance by 40% through code optimization.
+                    </p>
+                </div>
+            </div>
+    
+           
+    </section>
+
+    <!-- Certifications Section -->
+<section id="certifications" class="py-20 bg-darker">
+    <div class="container mx-auto px-6">
+
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                My <span class="gradient-text">Certifications & Skill Badges</span>
+            </h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Certification 1 -->
+            <div class="project-card rounded-xl overflow-hidden card-hover">
+                <div class="h-48 overflow-hidden flex items-center justify-center bg-slate-900">
+                    <img src="assets/doc/img/certifications/prompt design.jpg" alt="Google Cloud Certification"
+                        class="h-full object-contain p-4">
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Google Cloud Certified - Prompt Design</h3>
+                    <p class="text-slate-400 mb-4">
+                        Skill badge awarded for demonstrating Prompt Engineering using Google Cloud's Vertex AI.
+                    </p>
+
+                    <div class="flex space-x-4">
+                        <a href="https://drive.google.com/file/d/1vbIaX6rLx7UMCJJWIEye_08NKiLDx5HO/view?usp=sharing"
+                            class="text-primary hover:text-secondary flex items-center gap-2">
+                            <i class="fas fa-external-link-alt"></i> Verify
+                        </a>
+
+                        <button onclick="openModal('cert1')"
+                            class="text-green-400 hover:text-green-500 flex items-center gap-2">
+                            <i class="fas fa-eye"></i> View
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certification 2 -->
+            <div class="project-card rounded-xl overflow-hidden card-hover">
+                <div class="h-48 overflow-hidden flex items-center justify-center bg-slate-900">
+                    <img src="assets/doc/img/certifications/Screenshot (78).png" alt="Oracle SQL Certification"
+                        class="h-full object-contain p-4">
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Oracle Certified: SQL Fundamentals</h3>
+                    <p class="text-slate-400 mb-4">
+                        Badge showcasing foundational-level SQL query and database skills.
+                    </p>
+
+                    <div class="flex space-x-4">
+                        <a href="https://drive.google.com/file/d/1g0olKlFmp0l3naNE2USzuSryboOcJuoH/view?usp=drive_link"
+                            class="text-primary hover:text-secondary flex items-center gap-2">
+                            <i class="fas fa-external-link-alt"></i> Verify
+                        </a>
+
+                        <button onclick="openModal('cert2')"
+                            class="text-green-400 hover:text-green-500 flex items-center gap-2">
+                            <i class="fas fa-eye"></i> View
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certification 3 -->
+            <div class="project-card rounded-xl overflow-hidden card-hover">
+                <div class="h-48 overflow-hidden flex items-center justify-center bg-slate-900">
+                    <img src="assets/doc/img/certifications/Screenshot (79).png" alt="TATA Cybersecurity Analyst"
+                        class="h-full object-contain p-4">
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">TATA Certified Cybersecurity Analyst</h3>
+                    <p class="text-slate-400 mb-4">
+                        Certification earned through hands-on cybersecurity labs and virtual internship.
+                    </p>
+
+                    <div class="flex space-x-4">
+                        <a href="https://drive.google.com/file/d/1idoE5F7q3gou0v7mWtELVwTrVKcjuaok/view?usp=drive_link"
+                            class="text-primary hover:text-secondary flex items-center gap-2">
+                            <i class="fas fa-external-link-alt"></i> Verify
+                        </a>
+
+                        <button onclick="openModal('cert3')"
+                            class="text-green-400 hover:text-green-500 flex items-center gap-2">
+                            <i class="fas fa-eye"></i> View
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Modals (IDs must match openModal('cert1') -> #cert1-modal ) -->
+        <div id="cert1-modal" class="modal-bg hidden" data-modal="cert1">
+            <div class="modal-box">
+                <div class="modal-header">
+                    <h3>Google Cloud Certification</h3>
+                    <button onclick="closeModal('cert1')" class="modal-close">&times;</button>
+                </div>
+                <img src="assets/doc/img/certifications/prompt design.jpg" class="modal-img" alt="Google Cloud Certificate">
+            </div>
+        </div>
+
+        <div id="cert2-modal" class="modal-bg hidden" data-modal="cert2">
+            <div class="modal-box">
+                <div class="modal-header">
+                    <h3>Oracle SQL Certification</h3>
+                    <button onclick="closeModal('cert2')" class="modal-close">&times;</button>
+                </div>
+                <img src="assets/doc/img/certifications/Screenshot (78).png" class="modal-img" alt="Oracle SQL Certificate">
+            </div>
+        </div>
+
+        <div id="cert3-modal" class="modal-bg hidden" data-modal="cert3">
+            <div class="modal-box">
+                <div class="modal-header">
+                    <h3>TATA Cybersecurity Certification</h3>
+                    <button onclick="closeModal('cert3')" class="modal-close">&times;</button>
+                </div>
+                <img src="assets/doc/img/certifications/Screenshot (79).png" class="modal-img" alt="TATA Certificate">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+    <!-- Projects -->
+    <section id="projects" class="py-20 bg-darker">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="gradient-text">Projects</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+            </div>
+    
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="assets/doc/img/project/p1.png" alt="Project 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">M-ai-L</h3>
+                        <p class="text-slate-400 mb-4">
+                            An AI agent for Email automation .
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Java</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Node.js/react</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Spring boot</span>
+                        </div>
+                        <div class="flex space-x-3">
+    
+                            <a href="https://github.com/Mahi2708/M-ai-L" class="text-primary hover:text-secondary">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+
+
+                            <a href="#" class="px-4 py-1 rounded-full bg-green-600 text-white hover:bg-green-700">
+                                <i class="fas fa-external-link-alt"></i>  Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Project 2 -->
+                <div class="project-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555421689-3f034debb7a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                            alt="Project 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Image Analyser</h3>
+                        <p class="text-slate-400 mb-4">
+                            A project on live image Analysis using OpenCV.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Java</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">OpennCV</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Html</span>
+                        </div>
+                        <div class="flex space-x-3">
+    
+                            <a href="https://github.com/Mahi2708/image-capture-using-java--openCV" class="text-primary hover:text-secondary">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="px-4 py-1 rounded-full bg-green-600 text-white hover:bg-green-700">
+                                <i class="fas fa-external-link-alt"></i>  Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Project 3 -->
+                <div class="project-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="assets/doc/img/project/dashboard screenshot.png" alt="Project 3" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Blinkit E-commerce Dashboard</h3>
+                        <p class="text-slate-400 mb-4">
+                            Analytics dashboard for Blinkit E-commerce store to visualise the data.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Power BI </span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">MS Excel</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Data visualization</span>
+                        </div>
+                        <div class="flex space-x-3">
+                        
+                            <a href="https://github.com/Mahi2708/Blinkit-data-anlaysis-using-Power-BI"
+                                class="px-4 py-1 rounded-full bg-slate-700 text-primary hover:bg-slate-600">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        
+                            <a href="#" class="px-4 py-1 rounded-full bg-green-600 text-white hover:bg-green-700">
+                                <i class="fas fa-external-link-alt"></i>  Demo
+                            </a>
+                        
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <h2 class="text-center text-4xl font-bold mb-12">Get In <span class="gradient-text">Touch</span></h2>
+
+            <form action="https://formspree.io/f/mnnzrlzo" method="POST" class="max-w-xl mx-auto">
+
+                <input type="text" name="name" placeholder="Your Name" class="contact-input" required>
+                <input type="email" name="email" placeholder="Your Email" class="contact-input" required>
+                <input type="text" name="subject" placeholder="Subject" class="contact-input" required>
+                <textarea name="message" rows="5" placeholder="Message" class="contact-input" required></textarea>
+
+                <button class="btn-primary w-full py-3 rounded-full mt-4">Send Message</button>
+            </form>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-darker py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold gradient-text">Mahanthesh S</a>
+    
+                </div>
+    
+                <div class="flex space-x-6">
+                    <a href="https://github.com/Mahi2708"
+                        class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-primary">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mahanthesh-s-2604b42a2/"
+                        class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-600">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com/msl170823/?utm_source=qr&igsh=MXJpdDFreGdnb2I2aQ%3D%3D#"
+                        class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-400">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+    
+                </div>
+            </div>
+    
+    
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" class="back-to-top hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+    
+    <!-- JS -->
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

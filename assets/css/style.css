@@ -1,0 +1,194 @@
+/* Global Colors */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f172a;
+    color: #e2e8f0;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #0ea5e9, #7e22ce);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: #1e293b;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.social-icon:hover {
+    background: #0ea5e9;
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(90deg, #0ea5e9, #7e22ce);
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+/* Skill Bars */
+.skill-bar {
+    height: 8px;
+    background: #1e293b;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #0ea5e9, #7e22ce);
+    border-radius: 4px;
+}
+
+/* Cards */
+.project-card,
+.experience-card {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 16px;
+    transition: 0.3s;
+}
+
+.project-card:hover,
+.experience-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Contact Form */
+.contact-input {
+    width: 100%;
+    padding: 14px;
+    background: #1e293b;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #334155;
+    color: white;
+}
+
+/* Floating Image Animation */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Back to Top */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0ea5e9;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Modal */
+.modal-bg {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+.modal-box {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 700px;
+    width: 90%;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.modal-close {
+    font-size: 28px;
+    color: #f87171;
+}
+
+.modal-img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Underline Animation (Added) */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(90deg, #0ea5e9, #7e22ce);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.active::after {
+    width: 100%;
+}
+.section-title {
+    position: relative;
+    display: inline-block;
+    /* important — so underline matches text width */
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    /* slightly thicker for section titles */
+    bottom: -5px;
+    /* spacing under title */
+    left: 0;
+    background: linear-gradient(90deg, #0ea5e9, #7e22ce);
+    transition: width 0.3s ease;
+}
+
+.section-title:hover::after {
+    width: 100%;
+}
+
+.section-title.active::after {
+    width: 100%;
+}
