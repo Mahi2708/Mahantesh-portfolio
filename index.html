@@ -388,6 +388,33 @@
                 </div>
             </div>
 
+            <!--certification 4--->
+                       <div class="project-card rounded-xl overflow-hidden card-hover">
+                <div class="h-48 overflow-hidden flex items-center justify-center bg-slate-900">
+                    <img src="assets/doc/img/certifications/cnsp.png" alt="CNSP certification"
+                        class="h-full object-contain p-4">
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">the SecOps Group Certified: Certified network security practitioner</h3>
+                    <p class="text-slate-400 mb-4">
+                        certification showcasing the foundations for network security and stepping stone for cyber security.
+                    </p>
+
+                    <div class="flex space-x-4">
+                        <a href="https://drive.google.com/file/d/1KdXmQ5d5cKMH_hDTni6Ekt8PPMN0P2dN/view?usp=sharing"
+                            class="text-primary hover:text-secondary flex items-center gap-2">
+                            <i class="fas fa-external-link-alt"></i> Verify
+                        </a>
+
+                        <button onclick="openModal('cert4')"
+                            class="text-green-400 hover:text-green-500 flex items-center gap-2">
+                            <i class="fas fa-eye"></i> View
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- Modals (IDs must match openModal('cert1') -> #cert1-modal ) -->
@@ -418,6 +445,15 @@
                     <button onclick="closeModal('cert3')" class="modal-close">&times;</button>
                 </div>
                 <img src="assets/doc/img/certifications/Screenshot (79).png" class="modal-img" alt="TATA Certificate">
+            </div>
+        </div>
+                <div id="cert4-modal" class="modal-bg hidden" data-modal="cert4">
+            <div class="modal-box">
+                <div class="modal-header">
+                    <h3>CNSP Certification</h3>
+                    <button onclick="closeModal('cert2')" class="modal-close">&times;</button>
+                </div>
+                <img src="assets/doc/img/certifications/cnsp.png" class="modal-img" alt="CNSP Certificate">
             </div>
         </div>
 
