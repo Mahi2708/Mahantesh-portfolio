@@ -38,8 +38,9 @@ ${JSON.stringify(portfolio, null, 2)}
 
     // ✅ Gemini REST endpoint
     const url =
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" +
-      apiKey;
+  "https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=" +
+  apiKey;
+
 
     const response = await fetch(url, {
       method: "POST",
