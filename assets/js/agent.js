@@ -106,6 +106,12 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       renderMessages();
       console.error("AI chat error:", err);
+      history.push({
+  role: "assistant",
+  content:
+    "⚠️ AI assistant is temporarily unavailable right now. Please try again later or contact Mahanthesh via email."
+});
+
     } finally {
       setLoading(false);
       input.focus();
