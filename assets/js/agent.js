@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ✅ Put your Vercel API URL here (for GitHub Pages)
-  const API_URL =  "/api/chat";
+  // ✅ Since frontend + backend on same Vercel project
+  const API_URL = "/api/chat";
 
   const toggleBtn = document.getElementById("ai-toggle");
   const box = document.getElementById("ai-box");
@@ -86,32 +86,40 @@ document.addEventListener("DOMContentLoaded", () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          message: text,
-          history: history.slice(-6).filter((m) => m.content !== "Thinking...")
+          message: text
         })
       });
 
       const data = await res.json();
       history = history.filter((m) => m.content !== "Thinking...");
 
-      if (!res.ok) throw new Error(data.error || "Error");
+      // ✅ Handle non-OK responses
+      if (!res.ok) {
+        if (res.status === 429) {
+          throw new Error("RATE_LIMIT");
+        }
+        throw new Error(data?.message || data?.error || "Error");
+      }
 
       history.push({ role: "assistant", content: data.reply });
       renderMessages();
     } catch (err) {
       history = history.filter((m) => m.content !== "Thinking...");
+
+      let errorMessage =
+        "⚠️ AI assistant is temporarily unavailable. Please try again later.";
+
+      if (err.message === "RATE_LIMIT") {
+        errorMessage = "⚠️ Too many requests. Please wait 5–10 seconds and try again.";
+      }
+
       history.push({
         role: "assistant",
-        content: "Sorry, something went wrong. Please try again."
+        content: errorMessage
       });
+
       renderMessages();
       console.error("AI chat error:", err);
-      history.push({
-  role: "assistant",
-  content:
-    "⚠️ AI assistant is temporarily unavailable right now. Please try again later or contact Mahanthesh via email."
-});
-
     } finally {
       setLoading(false);
       input.focus();
@@ -143,10 +151,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Enter") sendMessage();
   });
 
-  // ✅ Auto popup after few seconds EVERY TIME page loads
+  // ✅ Auto popup after 3 seconds every refresh
   setTimeout(() => {
     openChat();
-  }, 3000); // change time: 5000 = 5 seconds
+  }, 3000);
 
   renderMessages();
 });
