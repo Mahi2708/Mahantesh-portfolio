@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // ✅ Put your Vercel API URL here (for GitHub Pages)
-  const API_URL = "https://YOUR-VERCEL-APP.vercel.app/api/chat";
+  const API_URL =  "/api/chat";
 
   const toggleBtn = document.getElementById("ai-toggle");
   const box = document.getElementById("ai-box");
