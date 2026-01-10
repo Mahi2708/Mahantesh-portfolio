@@ -1,82 +1,80 @@
-import fs from "fs";
-import path from "path";
+const fs = require("fs");
+const path = require("path");
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   try {
-    // Allow only POST
     if (req.method !== "POST") {
       return res.status(405).json({ error: "Method not allowed" });
     }
 
-    const { message, history } = req.body || {};
-
-    // Validate message
+    const { message } = req.body || {};
     if (!message || typeof message !== "string") {
       return res.status(400).json({ error: "Invalid message" });
     }
 
-    if (message.length > 1000) {
-      return res.status(400).json({ error: "Message too long" });
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+      return res.status(500).json({ error: "Missing GEMINI_API_KEY" });
     }
 
-    // Load portfolio data
+    // Load portfolio JSON
     const filePath = path.join(process.cwd(), "data", "portfolio.json");
     const portfolio = JSON.parse(fs.readFileSync(filePath, "utf-8"));
 
-    // System Prompt
+    const email = portfolio?.contact?.email || "the email listed in the portfolio";
+
     const systemPrompt = `
 You are PortfolioAgent, an AI assistant for ${portfolio.name}.
-You answer questions about ${portfolio.name}'s portfolio projects, skills, experience, and contact info.
+Answer questions about ${portfolio.name}'s skills, projects, experience, and contact info.
 
 Rules:
-- Only use information from PORTFOLIO DATA.
-- If not present, say you don't know and suggest contacting ${portfolio.email}.
-- Be concise, recruiter-friendly, and professional.
-- If asked for best projects, pick 2-3 and justify using impact + stack.
-- Never hallucinate.
+- Use only PORTFOLIO DATA below.
+- If not present, say you don't know and suggest contacting ${email}.
+- Be concise and recruiter-friendly.
 
 PORTFOLIO DATA:
 ${JSON.stringify(portfolio, null, 2)}
 `;
 
-    const messages = [
-      { role: "system", content: systemPrompt },
-      ...(Array.isArray(history) ? history : []),
-      { role: "user", content: message }
-    ];
+    // ✅ Gemini REST endpoint
+    const url =
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" +
+      apiKey;
 
-    // OpenAI key
-    const apiKey = process.env.OPENAI_API_KEY;
-    if (!apiKey) {
-      return res.status(500).json({ error: "Missing OPENAI_API_KEY" });
-    }
-
-    // Call OpenAI Chat API
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    const response = await fetch(url, {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json"
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        model: "gpt-4o-mini",
-        messages,
-        temperature: 0.4
+        contents: [
+          {
+            role: "user",
+            parts: [{ text: systemPrompt + "\n\nUser question: " + message }]
+          }
+        ],
+        generationConfig: {
+          temperature: 0.4,
+          maxOutputTokens: 300
+        }
       })
     });
 
     const data = await response.json();
 
     if (!response.ok) {
-      console.error("OpenAI error:", data);
-      return res.status(500).json({ error: "OpenAI API error", details: data });
+      console.error("Gemini error:", data);
+      return res.status(response.status).json({
+        error: "Gemini API error",
+        details: data
+      });
     }
 
-    const reply = data?.choices?.[0]?.message?.content || "Sorry, I couldn't generate a response.";
+    const reply =
+      data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+      "Sorry, I couldn't generate a response.";
 
     return res.status(200).json({ reply });
   } catch (err) {
     console.error("Server error:", err);
     return res.status(500).json({ error: "Server error" });
   }
-}
+};
