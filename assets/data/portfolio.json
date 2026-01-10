@@ -1,0 +1,125 @@
+{
+  "name": "Mahanthesh S",
+  "headline": "Entry-level Software Engineer | Java • Spring Boot • Python • REST APIs • React",
+  "location": "Bengaluru, India",
+  "contact": {
+    "phone": "+91 7892568479",
+    "email": "mahantheshs61@gmail.com",
+    "linkedin": "LinkedIn (https://www.linkedin.com/in/mahanthesh-s-2604b42a2/)",
+    "github": "GitHub (https://github.com/Mahi2708)",
+    "portfolio": "Portfolio (https://mahi2708.github.io/Mahantesh-portfolio/)"
+  },
+  "summary": "Entry-level Software Engineer with hands-on experience in Java, Python, Spring Boot, RESTful API development, SQL, and React. Skilled in building scalable backend systems, integrating third-party APIs, and optimizing application performance. Strong foundation in OOP, DSA, web development, and database design, with project experience across banking applications, AI tools, and data visualization dashboards.",
+  "core_skills": {
+    "programming_languages": ["Java", "Python"],
+    "backend": ["Spring Boot", "REST API Development", "Hibernate ORM", "Asynchronous Processing", "Exception Handling"],
+    "frontend": ["React", "TypeScript"],
+    "databases": ["PostgreSQL", "MySQL"],
+    "tools_platforms": ["Git", "GCP", "Power BI", "VS Code", "Figma"],
+    "concepts": ["DSA", "OOP", "SDLC", "Agile"]
+  },
+  "experience": [
+    {
+      "title": "Web Development Intern",
+      "company": "Mindset IT Solution",
+      "location": "Bengaluru",
+      "start": "2025-03",
+      "end": "2025-06",
+      "highlights": [
+        "Built RESTful APIs and dynamic business logic using Spring Boot for scalable and modular development.",
+        "Streamlined data access and persistence using Hibernate ORM and optimized queries for improved DB integration."
+      ],
+      "tech_stack": ["Java", "Spring Boot", "Hibernate", "REST APIs", "SQL"]
+    }
+  ],
+  "virtual_experience": [
+    {
+      "program": "Cybersecurity Analyst Simulation",
+      "provider": "Tata (Forage)"
+    },
+    {
+      "program": "Prompt Design using Vertex AI",
+      "provider": "Google"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Banking System Web Application",
+      "date": "2024-06",
+      "category": "Backend + Web Application",
+      "description": "Developed a secure banking system web application using Java Spring Boot and REST APIs, focused on performance, realtime updates, and data consistency.",
+      "impact": [
+        "Achieved ~60% reduction in API response time through asynchronous processing and query tuning.",
+        "Improved data consistency and reduced latency using real-time transaction updates via WebSockets."
+      ],
+      "tech_stack": ["Java", "Spring Boot", "REST APIs", "SQL", "WebSockets"],
+      "links": {
+        "github": "Add GitHub link if available",
+        "live": "Add live link if available"
+      }
+    },
+    {
+      "title": "Blinkit Dashboard",
+      "date": "2025-01",
+      "category": "Data Visualization",
+      "description": "Built an interactive dashboard to visualize business insights using Power BI with optimized reporting and filtering.",
+      "impact": [
+        "Implemented dynamic filtering and interactive visuals to improve insight discovery.",
+        "Built efficient reporting using Power Query and DAX."
+      ],
+      "tech_stack": ["Power BI", "Power Query", "DAX"],
+      "links": {
+        "github": "Add GitHub link if available",
+        "live": "Add live link if available"
+      }
+    },
+    {
+      "title": "M-ai-L (AI Email Agent)",
+      "date": "2025-11",
+      "category": "AI Agent + Web App",
+      "description": "Built an AI email agent that generates tone-aware replies using OpenAI API, with Gmail inbox automation and a scalable full-stack deployment.",
+      "impact": [
+        "Generated tone-aware email replies using OpenAI API.",
+        "Integrated Gmail API with OAuth for secure inbox automation and reply drafting.",
+        "Deployed a full stack app using React + Express.js + PostgreSQL."
+      ],
+      "tech_stack": ["TypeScript", "React", "Express.js", "PostgreSQL", "OpenAI API", "Gmail API", "OAuth"],
+      "links": {
+        "github": "Add GitHub link if available",
+        "live": "Add live link if available"
+      }
+    }
+  ],
+  "certifications": [
+    "Google Certified Prompt Design in Vertex AI Skill Badge",
+    "Oracle Certified SQL - Basics",
+    "Tata Certified Cybersecurity Analyst",
+    "The SecOps Group - Certified Network Security Practitioner (CNSP)"
+  ],
+  "education": [
+    {
+      "degree": "B.E. Information Science & Engineering",
+      "institution": "BMSIT&M",
+      "date": "2025-09"
+    },
+    {
+      "degree": "PCMB",
+      "institution": "Sharadhambha Independent PU College",
+      "date": "2021-06"
+    }
+  ],
+  "keywords_for_recruiters": [
+    "Java Developer",
+    "Spring Boot Developer",
+    "Backend Developer",
+    "REST APIs",
+    "SQL",
+    "React",
+    "AI Agent Developer",
+    "OpenAI API",
+    "Gmail API",
+    "OAuth",
+    "Power BI",
+    "GCP"
+  ]
+}
