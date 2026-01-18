@@ -67,3 +67,36 @@ function openModal(id) {
 function closeModal(id) {
     document.getElementById(id + "-modal").classList.add("hidden");
 }
+   const showMoreCard = document.getElementById("showMoreCard");
+    const hiddenProjects = document.querySelectorAll(".hidden-project");
+
+    let expanded = false;
+
+    showMoreCard.addEventListener("click", () => {
+        expanded = !expanded;
+
+        hiddenProjects.forEach(project => {
+            project.classList.toggle("hidden");
+        });
+
+        // Change card text
+        showMoreCard.innerHTML = expanded
+            ? `
+                <div class="p-10 text-center">
+                    <div class="text-5xl mb-4 text-primary">
+                        <i class="fas fa-minus-circle"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Show Less</h3>
+                    <p class="text-slate-400">Click to hide extra projects</p>
+                </div>
+              `
+            : `
+                <div class="p-10 text-center">
+                    <div class="text-5xl mb-4 text-primary">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Show More</h3>
+                    <p class="text-slate-400">Click to view more projects</p>
+                </div>
+              `;
+    });
