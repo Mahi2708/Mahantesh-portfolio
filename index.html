@@ -68,7 +68,7 @@
                     <a href="#contact" class="btn-primary px-6 py-3 rounded-full">Hire Me</a>
                     <a href="#projects" class="border border-primary text-primary px-6 py-3 rounded-full">View Work</a>
                     <div class="flex space-x-4">
-                        <a href="assets/doc/img/pdf/resume2.pdf" class="px-6 py-3 rounded-full btn-primary font-medium" download>My Resume
+                        <a href="assets/doc/img/pdf/resume.pdf" class="px-6 py-3 rounded-full btn-primary font-medium" download>My Resume
                             <i class="fas fa-download"></i>
                         </a>
                     
@@ -95,7 +95,9 @@
             </div>
         </div>
     </section>
-
+<div class="container mx-auto px-6">
+    <div class="h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent opacity-60"></div>
+</div>
     
 <!-- Skills Section -->
 <section id="skills" class="py-20 bg-dark">
@@ -114,7 +116,7 @@
                 <div class="space-y-6">
 
                     <div>
-                        <span class="font-medium">Java</span>
+                        <span class="font-medium">Java: Spring boot , Hibernate/JPA</span>
                         <div class="skill-bar">
                             <div class="skill-progress" style="width:100%"></div>
                         </div>
@@ -196,6 +198,7 @@
 
         </div>
     </div>
+    
     <!-- Tools & Technologies -->
     <div class="mt-16">
         <h3 class="text-2xl font-bold mb-8 text-center">Tools & <span class="gradient-text">Technologies</span></h3>
@@ -273,7 +276,9 @@
         
 </section>
 
-
+<div class="container mx-auto px-6">
+    <div class="h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent opacity-60"></div>
+</div>
     <!-- Experience Section -->
     <section id="experience" class="py-20 bg-darker">
     <div class="mt-20">
@@ -291,6 +296,14 @@
                         scale them effectively, and I developed strong skills in networking, pitching, and problem-solving
                         that prepared me to build and sustain ventures.
                     </p>
+                    <div class="flex gap-4 mt-4">
+                      
+                    
+                        <button onclick="openModal('ember-completion')"
+                            class="text-green-400 hover:text-green-500 flex items-center gap-2 text-sm">
+                            <i class="fas fa-award"></i> Completion Letter
+                        </button>
+                    </div>
                 </div>
                 <div class="order-1 w-5/12"></div>
             </div>
@@ -304,11 +317,46 @@
                         built responsive web applications using java, spring boot,React and Next.js.
                         Improved performance by 40% through code optimization.
                     </p>
+                    <div class="flex gap-4 mt-4">
+                        
+                        <button onclick="openModal('mindset-completion')"
+                            class="text-green-400 hover:text-green-500 flex items-center gap-2 text-sm">
+                            <i class="fas fa-award"></i> Completion Letter
+                        </button>
+                    </div>
                 </div>
             </div>
-    
+            <div id="ember-completion-modal" class="fixed inset-0 hidden items-center justify-center bg-black/80 z-[9999] p-4">
+            
+                <div class="relative bg-slate-900 rounded-2xl max-w-5xl w-full p-4">
+            
+                    <button onclick="closeModal('ember-completion')"
+                        class="absolute top-3 right-4 text-4xl text-red-400 hover:text-red-500">
+                        &times;
+                    </button>
+            
+                    <img src="assets/doc/img/experience/ember-completion.jpeg" alt="Emberquest Completion Letter"
+                        class="w-full max-h-[85vh] object-contain rounded-xl">
+                </div>
+            </div>
+            <div id="mindset-completion-modal" class="fixed inset-0 hidden items-center justify-center bg-black/80 z-[9999] p-4">
+            
+                <div class="relative bg-slate-900 rounded-2xl max-w-5xl w-full p-4">
+            
+                    <button onclick="closeModal('mindset-completion')"
+                        class="absolute top-3 right-4 text-4xl text-red-400 hover:text-red-500">
+                        &times;
+                    </button>
+            
+                    <img src="assets/doc/img/experience/mindset-completion.png" alt="Mindset Completion Letter"
+                        class="w-full max-h-[85vh] object-contain rounded-xl">
+                </div>
+            </div>
            
     </section>
+    <div class="container mx-auto px-6">
+        <div class="h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent opacity-60"></div>
+    </div>
 
     <!-- Certifications Section -->
 <section id="certifications" class="py-20 bg-darker">
@@ -326,7 +374,7 @@
             <!-- Certification 1 -->
             <div class="project-card rounded-xl overflow-hidden card-hover">
                 <div class="h-48 overflow-hidden flex items-center justify-center bg-slate-900">
-                    <img src="assets/doc/img/certifications/prompt design.jpg" alt="Google Cloud Certification"
+                    <img src="assets/doc/img/certifications/prompt-design.png" alt="Google Cloud Certification"
                         class="h-full object-contain p-4">
                 </div>
 
@@ -337,7 +385,7 @@
                     </p>
 
                     <div class="flex space-x-4">
-                        <a href="https://drive.google.com/file/d/1vbIaX6rLx7UMCJJWIEye_08NKiLDx5HO/view?usp=sharing"
+                        <a href="https://www.skills.google/public_profiles/681b7244-bd88-4c82-a6bf-467e8bc096ee/badges/20291794"
                             class="text-primary hover:text-secondary flex items-center gap-2">
                             <i class="fas fa-external-link-alt"></i> Verify
                         </a>
@@ -405,7 +453,7 @@
             </div>
 
             <!--certification 4--->
-                       <div class="project-card rounded-xl overflow-hidden card-hover">
+                <div class="project-card rounded-xl overflow-hidden card-hover">
                 <div class="h-48 overflow-hidden flex items-center justify-center bg-slate-900">
                     <img src="assets/doc/img/certifications/cnsp.png" alt="CNSP certification"
                         class="h-full object-contain p-4">
@@ -423,8 +471,8 @@
                             <i class="fas fa-external-link-alt"></i> Verify
                         </a>
 
-                        <button onclick="openModal('cert4')"
-                            class="text-green-400 hover:text-green-500 flex items-center gap-2">
+                        <!-- VIEW BUTTON -->
+                        <button onclick="openModal('cert4')" class="text-green-400 hover:text-green-500 flex items-center gap-2">
                             <i class="fas fa-eye"></i> View
                         </button>
                     </div>
@@ -440,7 +488,7 @@
                     <h3>Google Cloud Certification</h3>
                     <button onclick="closeModal('cert1')" class="modal-close">&times;</button>
                 </div>
-                <img src="assets/doc/img/certifications/prompt design.jpg" class="modal-img" alt="Google Cloud Certificate">
+                <img src="assets/doc/img/certifications/prompt-design.png" class="modal-img" alt="Google Cloud Certificate">
             </div>
         </div>
 
@@ -467,7 +515,7 @@
             <div class="modal-box">
                 <div class="modal-header">
                     <h3>CNSP Certification</h3>
-                    <button onclick="closeModal('cert2')" class="modal-close">&times;</button>
+                    <button onclick="closeModal('cert4')" class="modal-close">&times;</button>
                 </div>
                 <img src="assets/doc/img/certifications/cnsp.png" class="modal-img" alt="CNSP Certificate">
             </div>
@@ -475,6 +523,9 @@
 
     </div>
 </section>
+<div class="container mx-auto px-6">
+    <div class="h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent opacity-60"></div>
+</div>
 
 <!-- Projects -->
 <section id="projects" class="py-20 bg-darker">
@@ -651,6 +702,9 @@
         </div>
     </div>
 </section>
+<div class="container mx-auto px-6">
+    <div class="h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent opacity-60"></div>
+</div>
 
 
     <!-- Contact -->

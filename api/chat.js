@@ -58,7 +58,9 @@ Rules:
 - Use only PORTFOLIO DATA below.
 - If not present, say you don't know and suggest contacting ${email}.
 - Be concise and recruiter-friendly.
-- Never hallucinate.
+- If information is missing from portfolio data, clearly say it is unavailable.
+- Never invent skills, projects, or experience.
+- Answer professionally like a recruiter-facing assistant.
 
 PORTFOLIO DATA:
 ${JSON.stringify(portfolio, null, 2)}
@@ -69,23 +71,38 @@ ${JSON.stringify(portfolio, null, 2)}
       "https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key=" +
       apiKey;
 
-    const response = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [
-          {
-            role: "user",
-            parts: [{ text: systemPrompt + "\n\nUser question: " + message }]
-          }
-        ],
-        generationConfig: {
-          temperature: 0.4,
-          maxOutputTokens: 300
-        }
-      })
-    });
+   const controller = new AbortController();
 
+const timeout = setTimeout(() => {
+  controller.abort();
+}, 15000);
+
+const response = await fetch(url, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  signal: controller.signal,
+  body: JSON.stringify({
+    contents: [
+      {
+        role: "user",
+        parts: [
+          {
+            text:
+              systemPrompt +
+              "\n\nUser question: " +
+              message
+          }
+        ]
+      }
+    ],
+    generationConfig: {
+      temperature: 0.4,
+      maxOutputTokens: 300
+    }
+  })
+});
+
+clearTimeout(timeout);
     const data = await response.json();
 
     // ✅ Better error message for debugging
@@ -110,7 +127,7 @@ ${JSON.stringify(portfolio, null, 2)}
 
     return res.status(200).json({ reply });
   } catch (err) {
-    console.error("Server error:", err);
+    console.error("Server error:", err?.message || err);
     return res.status(500).json({ error: "Server error" });
   }
 };
