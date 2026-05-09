@@ -6,14 +6,18 @@ const rateMap = global.rateMap || (global.rateMap = new Map());
 
 module.exports = async function handler(req, res) {
   try {
-    // Allow only POST
+    // ✅ Allow only POST
     if (req.method !== "POST") {
-      return res.status(405).json({ error: "Method not allowed" });
+      return res.status(405).json({
+        error: "Method not allowed"
+      });
     }
 
     // ✅ Rate limiting: 1 request per 4 seconds per IP
     const ip =
-      (req.headers["x-forwarded-for"] || "").split(",")[0]?.trim() ||
+      (req.headers["x-forwarded-for"] || "")
+        .split(",")[0]
+        ?.trim() ||
       req.socket?.remoteAddress ||
       "unknown";
 
@@ -22,112 +26,175 @@ module.exports = async function handler(req, res) {
 
     if (now - lastTime < 4000) {
       return res.status(429).json({
-        error: "Too many requests. Please wait a few seconds and try again."
+        error:
+          "Too many requests. Please wait a few seconds and try again."
       });
     }
 
     rateMap.set(ip, now);
 
-    // Read message
+    // ✅ Read message
     const { message } = req.body || {};
+
     if (!message || typeof message !== "string") {
-      return res.status(400).json({ error: "Invalid message" });
+      return res.status(400).json({
+        error: "Invalid message"
+      });
     }
 
     if (message.length > 1000) {
-      return res.status(400).json({ error: "Message too long" });
+      return res.status(400).json({
+        error: "Message too long"
+      });
     }
 
-    // Gemini API Key
-    const apiKey = process.env.GEMINI_API_KEY;
+    // ✅ OpenRouter API Key
+    console.log(
+      "API KEY EXISTS:",
+      !!process.env.OPENROUTER_API_KEY
+    );
+
+    const apiKey = process.env.OPENROUTER_API_KEY;
+
     if (!apiKey) {
-      return res.status(500).json({ error: "Missing GEMINI_API_KEY" });
+      return res.status(500).json({
+        error: "Missing OPENROUTER_API_KEY"
+      });
     }
 
-    // Load portfolio JSON
-    const filePath = path.join(process.cwd(), "data", "portfolio.json");
-    const portfolio = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    // ✅ Load portfolio JSON
+    const filePath = path.join(
+      process.cwd(),
+      "data",
+      "portfolio.json"
+    );
 
-    const email = portfolio?.contact?.email || "the email listed in the portfolio";
+    const portfolio = JSON.parse(
+      fs.readFileSync(filePath, "utf-8")
+    );
 
+    const email =
+      portfolio?.contact?.email ||
+      "the email listed in the portfolio";
+
+    // ✅ System Prompt
     const systemPrompt = `
 You are PortfolioAgent, an AI assistant for ${portfolio.name}.
-Answer questions about ${portfolio.name}'s skills, projects, experience, and contact info.
+
+Answer questions about ${portfolio.name}'s:
+- skills
+- projects
+- experience
+- education
+- contact information
 
 Rules:
-- Use only PORTFOLIO DATA below.
-- If not present, say you don't know and suggest contacting ${email}.
-- Be concise and recruiter-friendly.
-- If information is missing from portfolio data, clearly say it is unavailable.
-- Never invent skills, projects, or experience.
-- Answer professionally like a recruiter-facing assistant.
+- Use ONLY the provided portfolio data.
+- Never invent information.
+- If something is unavailable, clearly say so.
+- Keep answers concise and recruiter-friendly.
+- Mention technologies used in projects when relevant.
+- Format clearly using short paragraphs or bullet points.
 
 PORTFOLIO DATA:
-${JSON.stringify(portfolio, null, 2)}
+${JSON.stringify(portfolio)}
 `;
 
-    // ✅ Gemini REST endpoint (v1)
+    // ✅ OpenRouter endpoint
     const url =
-      "https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key=" +
-      apiKey;
+      "https://openrouter.ai/api/v1/chat/completions";
 
-   const controller = new AbortController();
+    // ✅ Timeout controller
+    const controller = new AbortController();
 
-const timeout = setTimeout(() => {
-  controller.abort();
-}, 15000);
+    const timeout = setTimeout(() => {
+      controller.abort();
+    }, 30000);
 
-const response = await fetch(url, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  signal: controller.signal,
-  body: JSON.stringify({
-    contents: [
-      {
-        role: "user",
-        parts: [
+    // ✅ API request
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json"
+      },
+      signal: controller.signal,
+      body: JSON.stringify({
+        model:
+  "openai/gpt-3.5-turbo",
+
+        messages: [
           {
-            text:
-              systemPrompt +
-              "\n\nUser question: " +
-              message
+            role: "system",
+            content: systemPrompt
+          },
+          {
+            role: "user",
+            content: message
           }
-        ]
-      }
-    ],
-    generationConfig: {
-      temperature: 0.4,
-      maxOutputTokens: 300
+        ],
+
+        temperature: 0.4,
+        max_tokens: 300
+      })
+    });
+
+    clearTimeout(timeout);
+
+    // ✅ Read raw response
+    const text = await response.text();
+
+    console.log("Raw OpenRouter Response:", text);
+
+    let data;
+
+    try {
+      data = JSON.parse(text);
+    } catch (e) {
+      return res.status(500).json({
+        error: "Invalid JSON response from OpenRouter",
+        raw: text
+      });
     }
-  })
-});
 
-clearTimeout(timeout);
-    const data = await response.json();
-
-    // ✅ Better error message for debugging
+    // ✅ Handle API errors
     if (!response.ok) {
-      const geminiMsg =
+      const apiMessage =
         data?.error?.message ||
         data?.message ||
-        "Gemini API error";
+        "OpenRouter API error";
 
-      console.error("Gemini error:", geminiMsg, data);
+      console.error(
+        "OpenRouter error:",
+        apiMessage,
+        data
+      );
 
       return res.status(response.status).json({
-        error: "Gemini API error",
-        message: geminiMsg,
+        error: "OpenRouter API error",
+        message: apiMessage,
         details: data
       });
     }
 
+    // ✅ Extract reply
     const reply =
-      data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+      data?.choices?.[0]?.message?.content ||
       "Sorry, I couldn't generate a response.";
 
-    return res.status(200).json({ reply });
+    // ✅ Success response
+    return res.status(200).json({
+      reply
+    });
+
   } catch (err) {
-    console.error("Server error:", err?.message || err);
-    return res.status(500).json({ error: "Server error" });
+    console.error(
+      "Server error:",
+      err?.message || err
+    );
+
+    return res.status(500).json({
+      error: "Server error"
+    });
   }
 };
